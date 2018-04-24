@@ -64,8 +64,8 @@
 			$name = get_data('vname');
 			$result['url'] = base64_url($url);
 			$result['name'] = $name;
-			$murl = 'value= "'. $url .'"' . $murl;
-			$mname = 'value= "'. $name .'"' . $mname;
+			$murl = 'value= "'. $url .'" ' . $murl;
+			$mname = 'value= "'. $name .'" ' . $mname;
 		}
 		?>
 		<div class="container">
@@ -74,23 +74,24 @@
 				<?=$error?>
 				<p class="form-group">
 					<label for="url">Place your url</label>
-					<input class="form-control" type="text" name="url" value="" id="url" <?=$murl; ?>/>
+					<input class="form-control" type="text" name="url" id="url" <?=$murl; ?>/>
 					<label for="vname">Name</label>
-					<input class="form-control" type="text" name="vname" value="" id="vname" <?=$mname; ?>/>
-
+					<input class="form-control" type="text" name="vname" id="vname" <?=$mname; ?>/>
+				</p>
+				<p class="form-group">
 					<input class="form-control" type="submit" value="Continue &rarr;"/>
 				</p>
 			</form>
-			<?php if(isset($result) && !$error){
-			?>
+			<?php if(isset($result) && !$error){ ?>
 			<p>
-			<a href="<?=$result['url'] ?>"><?=$result['name'] ?></a>
+				<a href="<?=$result['url'] ?>"><?=$result['name'] ?></a>
 			</p>
 			<p>
-			<span>code</span>
-			<pre>
-			<a href="<?=$result['url'] ?>"><?=$result['name'] ?></a>
-			</pre>
+				<b>code</b>
+				<br/>
+				<code>
+					&lt;a&nbsp;href="<?=$result['url'] ?>"&gt;<?=$result['name'] ?>&lt;/a&gt;
+				</code>
 			</p>
 			<?php } else{ ?>
 			<p>
